@@ -5,14 +5,12 @@ import PropTypes from 'prop-types';
 import connectToDatoCms from './connectToDatoCms';
 import './style.sass';
 
-const Main = ({ datoCmsApiToken, developmentMode, fieldValue }) => {
+const Main = ({ datoCmsApiToken, fieldValue }) => {
   const [url, setUrl] = useState();
 
   useEffect(() => {
     if (fieldValue && fieldValue.upload_id) {
-      const client = new SiteClient(datoCmsApiToken, {
-        environment: developmentMode,
-      });
+      const client = new SiteClient(datoCmsApiToken);
 
       client.uploads.find(fieldValue.upload_id)
         .then((upload) => {
@@ -35,13 +33,11 @@ const Main = ({ datoCmsApiToken, developmentMode, fieldValue }) => {
 
 const Wrap = connectToDatoCms(plugin => ({
   datoCmsApiToken: plugin.parameters.global.datoCmsApiToken,
-  developmentMode: plugin.parameters.global.developmentMode,
   fieldValue: plugin.getFieldValue(plugin.fieldPath),
 }))(Main);
 
 Main.propTypes = {
   datoCmsApiToken: PropTypes.string.isRequired,
-  developmentMode: PropTypes.string,
   fieldValue: PropTypes.object,
 };
 

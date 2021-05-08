@@ -1,65 +1,62 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin")
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production"
 
 module.exports = {
-  entry: __dirname + '/src/index.jsx',
+  entry: __dirname + "/src/index.jsx",
   mode: process.env.NODE_ENV,
   output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js'
+    path: __dirname + "/dist",
+    filename: "bundle.js",
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   devServer: {
-    contentBase: './',
+    contentBase: "./",
     disableHostCheck: true,
-    public: 'http://localhost:5000',
+    public: "https://localhost:5000",
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        include: __dirname + '/src',
-        loader: 'eslint-loader',
-        enforce: 'pre',
+        include: __dirname + "/src",
+        loader: "eslint-loader",
+        enforce: "pre",
       },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        use: { loader: 'babel-loader' } },
+        use: { loader: "babel-loader" },
+      },
       {
         test: /\.sass$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
-        ]
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.svg/,
         use: {
-          loader: 'svg-url-loader',
-          options: {}
-        }
+          loader: "svg-url-loader",
+          options: {},
+        },
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'DatoCMS plugin',
+      title: "DatoCMS plugin",
       minify: isProduction,
     }),
     new HtmlWebpackTagsPlugin({
       append: false,
-      publicPath: '',
+      publicPath: "",
       tags: [
-        'https://unpkg.com/datocms-plugins-sdk@0.0.10/dist/sdk.js',
-        'https://unpkg.com/datocms-plugins-sdk@0.0.10/dist/sdk.css',
-      ]
+        "https://unpkg.com/datocms-plugins-sdk@0.0.10/dist/sdk.js",
+        "https://unpkg.com/datocms-plugins-sdk@0.0.10/dist/sdk.css",
+      ],
     }),
   ].filter(Boolean),
 }
