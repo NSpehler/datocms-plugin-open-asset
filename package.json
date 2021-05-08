@@ -89,5 +89,15 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NSpehler/datocms-plugin-download-button.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NSpehler/datocms-plugin-download-button/issues"
   }
 }
