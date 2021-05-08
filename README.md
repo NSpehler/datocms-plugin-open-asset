@@ -1,4 +1,4 @@
-# Download Button DatoCMS plugin
+# Open asset DatoCMS plugin
 
 A plugin to add a one-click download button to single asset fields in DatoCMS.
 
@@ -6,13 +6,13 @@ A plugin to add a one-click download button to single asset fields in DatoCMS.
 
 Please specify a read-only DatoCMS API key on the plugin global settings:
 
-![Demo](https://raw.githubusercontent.com/NSpehler/datocms-plugin-download-button/master/docs/global.png)
+![Demo](https://raw.githubusercontent.com/NSpehler/datocms-plugin-open-asset/master/docs/global.png)
 
 ## Usage
 
-To add a download button to a single asset field, choose "Download Button" as a field add-on.
+To add a download button to a single asset field, choose "Open Asset" as a field add-on.
 
-![Install](https://raw.githubusercontent.com/NSpehler/datocms-plugin-download-button/master/docs/install.png)
+![Install](https://raw.githubusercontent.com/NSpehler/datocms-plugin-open-asset/master/docs/install.png)
 
 ## Development
 
